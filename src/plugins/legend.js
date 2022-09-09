@@ -113,6 +113,8 @@ Legend.prototype.select = function(e) {
     var point = highlightSeries
       ? points.find(p => p.name === highlightSeries)
       : points[0]
+    // guard against missing point
+    if (!point) return;
     // determine floating [left, top] coordinates of the legend div
     // within the plotter_ area
     // offset 50 px to the right and down from the first selection point
